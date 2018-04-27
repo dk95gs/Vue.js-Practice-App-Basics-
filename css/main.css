@@ -1,0 +1,25 @@
+html,body {
+    background-color: #bce8f1;
+}
+.bar {
+    background-color: ghostwhite;
+    width: 80%;
+    height: 80px;
+    margin: 10px auto;
+}
+.healthBar{
+    background-color: #5cb85c;
+    width: 80%;
+    height: 80px;
+}
+.button {
+    width:220px;
+    height: 100px;
+    font-size: 22px;
+}
+.playerHighlight{
+    background: #5bc0de;
+}
+.monsterHighlight {
+    background-color: lightcoral;
+}

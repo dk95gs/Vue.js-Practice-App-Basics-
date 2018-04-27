@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to fight club!</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header>
+        <h1 class="text-center">Ready to fight?</h1>
+        <hr>
+    </header>
+    <div id="app" class="text-center">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Player</h2>
+                <div class="bar">
+                    <div :style="{width: playerHealth + '%'}" class="healthBar">
+                        {{ playerHealth }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>Monster</h2>
+                <div class="bar">
+                    <div :style="{width: monsterHealth + '%'}" class="healthBar">
+                        {{monsterHealth}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row text-center">
+            <div v-if="!gameStarted">
+                <input @click="startGame()" type="button" class="btn-primary button" value="Start Fight?">
+            </div>
+            <div v-else>
+                <input @click="punch" type="button" class="btn-primary button" value="Punch">
+                <input @click="kick" type="button" class="btn-success button" value="Kick">
+                <input @click="heal" type="button" class="btn button" value="Eat">
+                <input @click="endGame" type="button" class="btn-danger button" value="Surrender">
+
+            </div>
+        </div>
+        <div class="row">
+            <ul class="list-group">
+                <li class=" list-group-item" v-for="turn in turnLog"
+                :class="{playerHighlight : turn.isPlayer, monsterHighlight : !turn.isPlayer}">
+                    {{turn.text}}
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/Vue.js"></script>
+</body>
+</html>
